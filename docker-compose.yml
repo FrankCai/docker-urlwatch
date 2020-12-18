@@ -1,5 +1,5 @@
 urlwatch:
-  image: vimagick/urlwatch
+  image: rentum/urlwatch
   volumes:
     - ./data:/root/.urlwatch
   restart: unless-stopped
