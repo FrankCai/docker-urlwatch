@@ -31,8 +31,7 @@ RUN set -xe \
                libxslt-dev \
                openssl-dev \
                python3-dev \
-    && echo '*/12 * * * * cd /root/.urlwatch && urlwatch --urls urls.yaml --config urlwatch.yaml --hooks hooks.py --cache cache.db' | crontab -
-
+			   
 VOLUME /root/.urlwatch
 WORKDIR /root/.urlwatch
 
