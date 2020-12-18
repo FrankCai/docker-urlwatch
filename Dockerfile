@@ -3,7 +3,6 @@
 #
 
 FROM alpine
-MAINTAINER kev <noreply@easypi.pro>
 
 RUN set -xe \
     && apk add --no-cache ca-certificates \
@@ -16,6 +15,7 @@ RUN set -xe \
                           openssl-dev     \
                           python3         \
                           python3-dev     \
+						  python3-pip     \
     && python3 -m pip install appdirs   \
                               cssselect \
                               keyring   \
@@ -31,7 +31,8 @@ RUN set -xe \
                libxslt-dev \
                openssl-dev \
                python3-dev \
-			   
+    && echo '*/12 * * * * cd /root/.urlwatch && urlwatch --urls urls.yaml --config urlwatch.yaml --hooks hooks.py --cache cache.db' | crontab -
+
 VOLUME /root/.urlwatch
 WORKDIR /root/.urlwatch
 
